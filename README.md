@@ -5,6 +5,7 @@ This repository contains my personal dotfiles configuration, optimized for use w
 ## What's Included
 
 - **Git configuration** - User name, email, and default branch settings
+- **Global gitignore** - Ignore common files across all repos (.claude files, editor configs, OS files, etc.)
 - **Shell configurations** - Bash and Zsh settings with custom aliases
 
 **Note:** SSH config is intentionally NOT included for security reasons (it would expose internal network topology, IPs, and ports).
@@ -42,10 +43,11 @@ cd dotfiles
 The `install.sh` script will:
 
 1. Copy `.gitconfig` to your home directory
-2. Create `~/.ssh` directory with proper permissions
-3. Copy shell configurations (`.bashrc`, `.zshrc`, etc.)
-4. Set appropriate file permissions
-5. Preserve any existing configurations via timestamped backups
+2. Install global gitignore to `~/.config/git/ignore` (ignores .claude files, editor configs, etc.)
+3. Create `~/.ssh` directory with proper permissions
+4. Copy shell configurations (`.bashrc`, `.zshrc`, etc.)
+5. Set appropriate file permissions
+6. Preserve any existing configurations via timestamped backups
 
 ## SSH Configuration & Keys
 
@@ -89,10 +91,11 @@ Create project-specific minimal SSH configs in each dev container as needed.
 ├── INSTALL.md          # Detailed instructions
 ├── CONTRIBUTING.md     # Maintenance guide
 ├── install.sh          # Installation script
-├── .gitignore          # Prevent committing sensitive files
+├── .gitignore          # Prevent committing sensitive files to this repo
 ├── .editorconfig       # Editor configuration
 ├── git/
-│   └── .gitconfig      # Git configuration
+│   ├── .gitconfig      # Git user configuration
+│   └── ignore          # Global gitignore (installed to ~/.config/git/ignore)
 └── shell/
     ├── .bashrc         # Bash configuration
     ├── .bash_profile   # Bash profile

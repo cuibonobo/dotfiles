@@ -43,6 +43,10 @@ echo ""
 echo "📝 Installing Git configuration..."
 safe_copy "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig" 644
 
+# Install global gitignore
+mkdir -p "$HOME/.config/git"
+safe_copy "$DOTFILES_DIR/git/ignore" "$HOME/.config/git/ignore" 644
+
 # Setup SSH directory (config intentionally not included for security)
 echo ""
 echo "🔐 Setting up SSH directory..."
@@ -74,5 +78,6 @@ echo ""
 echo "📋 Next steps:"
 echo "  • Reload your shell or run: source ~/.bashrc (or ~/.zshrc)"
 echo "  • Check git config: git config --list"
+echo "  • View global ignores: cat ~/.config/git/ignore"
 echo "  • For SSH keys, ensure agent forwarding is enabled in VS Code"
 echo ""
