@@ -14,7 +14,25 @@ This repository contains my personal dotfiles configuration, optimized for use w
 
 ### Automatic Setup (Recommended)
 
-Configure VS Code to automatically install these dotfiles in all dev containers:
+The easiest way to get started is to run the installation script. On Linux, it will automatically configure VS Code settings:
+
+```bash
+cd ~
+git clone https://github.com/cuibonobo/dotfiles.git
+cd dotfiles
+./install.sh
+```
+
+**That's it!** The script will:
+- Install all dotfiles (git config, shell configs, etc.)
+- Automatically add the dotfiles configuration to VS Code settings (Linux only)
+- Set up proper permissions for SSH directory
+
+After running the script, your VS Code will be configured to automatically apply these dotfiles in all future dev containers.
+
+### Manual VS Code Configuration (Optional)
+
+If you prefer not to use the install script, or on non-Linux systems, you can manually configure VS Code:
 
 1. Open VS Code Settings (User level)
 2. Add the following to your `settings.json`:
@@ -27,17 +45,6 @@ Configure VS Code to automatically install these dotfiles in all dev containers:
 }
 ```
 
-### Manual Installation
-
-You can also manually install these dotfiles:
-
-```bash
-cd ~
-git clone https://github.com/cuibonobo/dotfiles.git
-cd dotfiles
-./install.sh
-```
-
 ## What Gets Installed
 
 The `install.sh` script will:
@@ -46,8 +53,9 @@ The `install.sh` script will:
 2. Install global gitignore to `~/.config/git/ignore` (ignores .claude files, editor configs, etc.)
 3. Create `~/.ssh` directory with proper permissions
 4. Copy shell configurations (`.bashrc`, `.zshrc`, etc.)
-5. Set appropriate file permissions
-6. Preserve any existing configurations via timestamped backups
+5. Configure VS Code settings (Linux only) - adds dotfiles repository configuration
+6. Set appropriate file permissions
+7. Preserve any existing configurations via timestamped backups
 
 ## SSH Configuration & Keys
 
